@@ -1,0 +1,41 @@
+<h2> Payments </h2>
+
+ <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+
+  
+
+  <table>
+      <tr>
+	<th>Payment Date</th>
+        <th>House ID</th>
+        <th>Agent</th>
+	<th>Amount</th>
+      </tr>
+    {% for i in payment %}
+      <tr>
+	<td>{{ i.payment_date }}</td>
+	<td>{{ i.property }}
+	<td><a href="/Agent/{{ i.agent }}">{{ i.agent }}</a></td>
+	<td># {{ i.amount }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+

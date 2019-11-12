@@ -1,0 +1,65 @@
+<h2> Agents </h2>
+
+ <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+
+  
+
+  <table>
+      <tr>
+        <th>Agent ID</th>
+        <th>Name</th>
+        <th>Phone No</th>
+	<th>Managed Houses</th>
+	<th>Managed Tenants</th>
+      </tr>
+    {% for agent in agents %}
+      	<tr>
+	<td><a href="/Agent/{{ agent.name }}">{{ agent.name }}</a></td>
+        <td>{{ agent.first_name }} {{ agent.last_name }}</td>
+        <td>{{ agent.phone_no }}</td>
+	<td>
+          <ul style="list-style-type:disc">
+              {% for i in prop %}
+		{% if i.agent == agent.name %}
+
+                <li><a href="/Property/{{ i.name }}">{{ i.name }}</a></li>
+
+		{% endif %}
+
+              {% endfor %}
+          </ul>
+        </td>
+        <td>
+	  <ul style="list-style-type:disc">
+		{% for i in tenant %}
+                  {% if i.agent == agent.name %}
+
+                <li><a href="/Tenant/{{ i.name }}">{{ i.name }}</a></li>
+
+                  {% endif %}
+
+		{% endfor %}
+
+	</td>
+      </tr>
+    {% endfor %}
+  </table>
+

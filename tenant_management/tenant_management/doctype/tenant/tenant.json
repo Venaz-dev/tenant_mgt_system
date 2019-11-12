@@ -7,7 +7,8 @@
  "field_order": [
   "first_name",
   "last_name",
-  "passport"
+  "passport",
+  "agent"
  ],
  "fields": [
   {
@@ -29,9 +30,16 @@
    "fieldtype": "Attach Image",
    "label": "Passport",
    "reqd": 1
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "Agent",
+   "reqd": 1
   }
  ],
- "modified": "2019-11-09 15:34:18.912841",
+ "modified": "2019-11-12 10:31:31.807128",
  "modified_by": "Administrator",
  "module": "Tenant Management",
  "name": "Tenant",

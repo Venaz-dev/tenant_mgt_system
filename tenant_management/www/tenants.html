@@ -1,0 +1,40 @@
+<h2> Tenants </h2>
+
+ <head>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+        tr:nth-child(even) {
+        background-color:  #dddddd;
+      }
+    </style>
+  </head>
+
+  
+
+  <table>
+      <tr>
+	<th>Passport</th>
+        <th>Tenant ID</th>
+        <th>Full Name</th>
+        <th>Agent</th>
+      </tr>
+    {% for ten in tenant %}
+      <tr>
+	<td><img src="{{ ten.passport }}" alt="" height=60 width=60</img></td>
+	<td>{{ ten.name }}</td>
+        <td>{{ ten.first_name }}</td>
+	<td><a href="/Agent/{{ ten.agent }}">{{ ten.agent }}</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+

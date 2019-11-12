@@ -1,0 +1,71 @@
+<h2> HOUSES </h2>
+
+ <head>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
+   <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  
+
+  <table>
+      <tr>
+        <th>House ID</th>
+        <th>House Name</th>
+	<th>House Owner</th>
+	<th>Status
+		 <select id='filterText' style='display:inline-block' onchange='filterText()'>
+                	<option disabled selected>Select</option>
+			<option value='all'>All</option>
+                	<option value='Available'>Available</option>
+                	<option value='Rented'>Rented</option>
+        	 </select> 
+	</th>
+        <th>Agent</th>
+      </tr>
+    {% for i in house %}
+      <tr class="content">
+	<td>{{ i.name }}</td>
+        <td>{{ i.property_name }} </td>
+	<td>{{ i.property_owner }}</td>
+	<td class="{{ i.status }}">{{ i.status }}</td>
+	<td><a href="/Agent/{{i.agent}}">{{ i.agent }}</a></td>
+
+      </tr>
+    {% endfor %}
+  </table>
+
+    <script>	
+	function filterText()
+	{  
+		var rex = new RegExp($('#filterText').val());
+		if(rex =="/all/"){clearFilter()}
+		else{
+			$('.content').hide();
+			$('.content').filter(function() {
+			return rex.test($(this).text());
+			}).show();
+		}
+	}
+	
+	function clearFilter()
+	{
+		$('.filterText').val('');
+		$('.content').show();
+	}    
+    </script>

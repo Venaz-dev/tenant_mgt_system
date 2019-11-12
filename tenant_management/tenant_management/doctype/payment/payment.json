@@ -1,64 +1,50 @@
 {
- "autoname": "PROP.####",
- "creation": "2019-11-09 17:06:32.421631",
+ "creation": "2019-11-10 16:59:07.253162",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "property_name",
+  "payment_date",
+  "property",
   "agent",
-  "property_owner",
-  "status",
-  "address",
-  "image"
+  "amount"
  ],
  "fields": [
   {
-   "fieldname": "property_name",
-   "fieldtype": "Data",
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Property Name",
+   "label": "Payment Date",
    "reqd": 1
   },
   {
-   "fieldname": "property_owner",
-   "fieldtype": "Data",
+   "fieldname": "property",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Property Owner",
+   "label": "Property",
+   "options": "Property",
    "reqd": 1
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "Available\nRented",
-   "reqd": 1
-  },
-  {
-   "fieldname": "address",
-   "fieldtype": "Text",
-   "in_list_view": 1,
-   "label": "Address",
-   "reqd": 1
-  },
-  {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "Image"
   },
   {
    "fieldname": "agent",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Agent",
    "options": "Agent",
    "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "reqd": 1
   }
  ],
- "modified": "2019-11-12 10:21:26.194859",
+ "modified": "2019-11-12 11:24:30.370750",
  "modified_by": "Administrator",
  "module": "Tenant Management",
- "name": "Property",
+ "name": "Payment",
  "owner": "Administrator",
  "permissions": [
   {
@@ -87,7 +73,6 @@
   }
  ],
  "quick_entry": 1,
- "search_fields": "property_name, address",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
